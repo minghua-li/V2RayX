@@ -9,6 +9,15 @@ fork of the archived v2ray-core — instead of upstream's amd64-only binary.
 Versions use an `-mli` suffix and tags use the `mli-vX.Y.Z` prefix to stay
 distinct from upstream.
 
+## [1.5.3-mli] — 2026-06-25
+
+### Changed
+
+- Raised `MACOSX_DEPLOYMENT_TARGET` from 10.12 to **10.13**, the minimum
+  supported by current Xcode (Xcode 26 supports 10.13+). Silences the build
+  warning and keeps the project building cleanly on modern toolchains. No
+  functional change; the app remains a universal (arm64 + x86_64) build.
+
 ## [1.5.2-mli] — 2026-06-25
 
 First fork release. The app and its bundled core both run natively on Apple
@@ -51,4 +60,5 @@ git submodule update --init --recursive
 xcodebuild -project V2RayX.xcodeproj -target V2RayX -configuration Release
 ```
 
+[1.5.3-mli]: https://github.com/minghua-li/V2RayX/releases/tag/mli-v1.5.3
 [1.5.2-mli]: https://github.com/minghua-li/V2RayX/releases/tag/mli-v1.5.2
