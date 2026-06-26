@@ -1,3 +1,21 @@
+# V2RayX-mli: native Apple Silicon fork
+
+> **This is a fork of the archived [`Cenmrev/V2RayX`](https://github.com/Cenmrev/V2RayX).**
+> It runs **natively on Apple Silicon (M-series) macOS**. The app is built as a
+> universal binary and bundles the native-arm64
+> [`v2ray-mli`](https://github.com/minghua-li/v2ray-core) core (via a universal
+> `lipo` of the arm64 + amd64 builds), instead of upstream's amd64-only core
+> that runs under Rosetta 2 and triggers the *"not optimized for your Mac"*
+> warning.
+>
+> - **Releases:** universal `.app`, Developer ID signed.
+> - **What changed & why:** [`CHANGELOG.md`](CHANGELOG.md)
+> - Build requires the `GCDWebServer` submodule:
+>   `git submodule update --init --recursive`
+> - Version scheme: `X.Y.Z-mli`, tags `mli-vX.Y.Z`.
+
+***
+
 # V2RayX: A simple GUI for V2Ray on macOS
 
 [![Build Status](https://travis-ci.org/Cenmrev/V2RayX.svg?branch=master)](https://travis-ci.org/Cenmrev/V2RayX)
