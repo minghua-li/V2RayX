@@ -10,8 +10,8 @@
 >
 > - **Releases:** universal `.app`, Developer ID signed.
 > - **What changed & why:** [`CHANGELOG.md`](CHANGELOG.md)
-> - Build requires the `GCDWebServer` submodule:
->   `git submodule update --init --recursive`
+> - `GCDWebServer` (BSD) is **vendored in-tree** under `GCDWebServer/` — no
+>   submodule init needed; just check out and build.
 > - Version scheme: `X.Y.Z-mli`, tags `mli-vX.Y.Z`.
 
 ***

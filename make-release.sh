@@ -15,8 +15,7 @@
 #                              ad-hoc signed (runs locally; not distributable).
 #   OUT_DIR        (optional)  output dir (default: ./dist).
 #
-# Requires Xcode and the GCDWebServer submodule:
-#   git submodule update --init --recursive
+# Requires Xcode. GCDWebServer is vendored in-tree (no submodule).
 
 set -euo pipefail
 
@@ -27,8 +26,9 @@ BUILD_DIR="${REPO_ROOT}/.build"
 cd "${REPO_ROOT}"
 
 if [[ ! -f GCDWebServer/GCDWebServer/Core/GCDWebServer.m ]]; then
-  echo ">> initializing GCDWebServer submodule"
-  git submodule update --init --recursive
+  echo "!! vendored GCDWebServer source missing (GCDWebServer/GCDWebServer/Core/GCDWebServer.m)" >&2
+  echo "!! it is committed in-tree, not a submodule — your checkout is incomplete" >&2
+  exit 1
 fi
 
 rm -rf "${BUILD_DIR}" "${OUT_DIR}"

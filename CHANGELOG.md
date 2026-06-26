@@ -9,6 +9,19 @@ fork of the archived v2ray-core — instead of upstream's amd64-only binary.
 Versions use an `-mli` suffix and tags use the `mli-vX.Y.Z` prefix to stay
 distinct from upstream.
 
+## [Unreleased]
+
+### Changed
+
+- **Vendored the `GCDWebServer` dependency in-tree.** It was previously a git
+  submodule pointing at [`swisspol/GCDWebServer`](https://github.com/swisspol/GCDWebServer),
+  which was **archived (read-only) on 2023-01-11** and will never update. The
+  source (BSD, v3.5.2, commit `7e4dd53`) is now committed directly under
+  `GCDWebServer/`, so the build no longer needs `git submodule update` and is
+  immune to the upstream repo being deleted. No code or behavior change — the
+  same source files compile into the app; `GCDWebServer/LICENSE` is retained for
+  BSD attribution. See `GCDWebServer/VENDORED-mli.md` for provenance.
+
 ## [1.5.3-mli] — 2026-06-25
 
 ### Changed
@@ -53,10 +66,9 @@ builds the app as a universal binary.
 
 ### Build
 
-Requires the `GCDWebServer` git submodule:
+`GCDWebServer` is vendored in-tree (no submodule init needed):
 
 ```bash
-git submodule update --init --recursive
 xcodebuild -project V2RayX.xcodeproj -target V2RayX -configuration Release
 ```
 
